@@ -45,6 +45,8 @@ public class MachineManager extends PluginParent implements INodeOperate {
     private String installPackage;
     @Value("${cache.machine.install.basepath}")
     private String installBasePath;
+    @Value("${cache.machine.install.download}")
+    private String downLoadPath;
 
     public MachineManager() {
         //ignore
@@ -156,12 +158,8 @@ public class MachineManager extends PluginParent implements INodeOperate {
         String username = reqParam.getString("username").trim();
         String password = reqParam.getString("password").trim();
         String imagePackage = reqParam.getString(PluginParent.IMAGE).trim();
-        String localIp = null;
-        try {
-            localIp = NetUtil.getLocalIp();
-        } catch (UnknownHostException e) {
-            return;
-        }
+        String localIp = downLoadPath;
+
         String serviceUrl = "http://" + localIp + ":" + servicePort + "/";
         String packageUrl = serviceUrl + installPackage;
         for (RedisNode redisNode : nodelist) {
