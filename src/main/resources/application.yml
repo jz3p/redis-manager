@@ -69,7 +69,7 @@ cache:
     machine:
         install:
             # 安装脚本下载路径,一般配置为本机ip地址
-            download: 10.11.12.51
+            download: 192.168.19.32
             # 安装脚本的路径
             shell: /shell/redis_install.sh
             # 安装包路径
